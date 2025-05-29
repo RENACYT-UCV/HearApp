@@ -18,21 +18,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Editar el resto de los campos
     $result = General::editCampusId($id, $nombre, $estado);
 
+    try{
 
-    if ($result->execute()) {
+        $conn -> beginTransaction();
 
-        // Items registrado correctamente
+        $stmt = $conn->prepare('UPDATE tbl_campus SET name=:nombre, state=:estado WHERE id=:id');
+        $stmt->bindParam('nombre',$nombre);
+        $stmt->bindParam('estado',$estado);
+        $stmt->bindParam('id',$id);
+        $stmt->execute();
+        $stmt->closeCursor();
+
+        $conn->commit();
+
         $response = array(
             'status' => 'success',
-            'message' => 'La sede se edito correctamente.'
+            'message' => 'El campus se editó correctamente.'
         );
-    } else {
-        // Error al registrar Items
-        $response = array(
-            'status' => 'error',
-            'message' => 'Error al editar sede.'
+
+
+        
+    }catch (PDOException $e){
+        $e -> getMessage();
+
+        $conn -> rollBack();
+
+        $response =  array(
+            'status' => 'Error',
+            'message' => 'No se puedo editar el campus'
         );
     }
+
+
+
+
+
+
+    // if ($result->execute()) {
+
+    //     // Items registrado correctamente
+    //     $response = array(
+    //         'status' => 'success',
+    //         'message' => 'La sede se edito correctamente.'
+    //     );
+    // } else {
+    //     // Error al registrar Items
+    //     $response = array(
+    //         'status' => 'error',
+    //         'message' => 'Error al editar sede.'
+    //     );
+    // }
     // Devolver la respuesta como JSON
     echo json_encode($response);
 }

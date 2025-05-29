@@ -85,7 +85,7 @@ class General
     public static function getCampusAll()
     {
         global $conn;
-        $statement = $conn->prepare("SELECT * FROM tbl_campus WHERE state = 'activo'");
+        $statement = $conn->prepare("SELECT * FROM tbl_campus");
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_OBJ);
         return $result;
