@@ -18,7 +18,7 @@ body {
 
 .navbar {
     display: inline-block;
-    width:100%;
+    width: 100%;
     background-color: var(--color-primario);
     padding: 1.5rem 2.5rem;
 
@@ -81,6 +81,19 @@ main {
         }
     }
 
+}
+
+.logo {
+    position: relative;
+    display: flex;
+    max-width: 500px;
+    width: 60%;
+
+    img {
+        position: absolute;
+        top: 10%;
+        width: 100%;
+    }
 
 }
 
