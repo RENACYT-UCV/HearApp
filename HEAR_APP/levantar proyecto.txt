@@ -7,6 +7,9 @@ ver tofo lo que tenemos instalado `pip list`
 
 correr o uniciar proyecto `python .\src\[app.py](http://app.py/)`
 
+Subir la base de datos
+nombre de la base de datos = db_hearpp
+script de la base de datos = hola.sql
 
 docente
 7002483033 -> Ana Lopez
