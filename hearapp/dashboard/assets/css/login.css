@@ -33,6 +33,10 @@ body {
         font-weight: bold;
         margin-bottom: 3rem;
         text-align: center;
+        display:flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
     }
 
     .sub-title {

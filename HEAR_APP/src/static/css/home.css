@@ -17,16 +17,39 @@ body {
 }
 
 .navbar {
-    display: inline-block;
-    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: var(--color-primario);
-    padding: 1.5rem 2.5rem;
+    padding: 1.5rem 1.5rem;
 
     .title_navbar {
         font-family: "Merriweather", serif;
         font-weight: 900;
         font-style: normal;
     }
+
+    @media (width < 540px) {
+        padding: 1.5rem 5px 1.5rem 0px;
+        .title_navbar {
+            transform: scale(.8);
+        }
+
+        .btn-float {
+            transform: scale(.8);
+        }
+    }
+@media (width < 450px) {
+    flex-direction: column ;
+    padding:0;
+    .title_navbar {
+            transform: scale(.7);
+        }
+
+        .btn-float {
+            transform: scale(.7);
+        }
+}
 }
 
 main {
@@ -40,6 +63,7 @@ main {
     flex-direction: column;
     gap: 40px;
     min-height: 55vh;
+    position: relative;
 
     .title {
         font-family: "Open Sans", sans-serif;
@@ -81,6 +105,26 @@ main {
         }
     }
 
+}
+
+.personas {
+    position: absolute;
+    display: flex;
+    max-width: 500px;
+    bottom: 10%;
+    left: 1200px;
+    width: 60%;
+
+    img {
+        width: 100%;
+    }
+
+    @media (width < 1660px) {
+        left: 1100px;
+    }
+    @media (width < 1600px) {
+        display: none;
+    }
 
 }
 

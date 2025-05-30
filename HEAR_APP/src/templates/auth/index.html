@@ -25,23 +25,11 @@
 <!-- Definir Bloque body -->
 {% block body %}
     <div id="particles-js"></div>
-    <nav class="navbar navbar-expand-lg">
-        <div class="container-fluid">
-            <a class="navbar-brand title_navbar text-white" href="#">HEAR APP</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-                <div class="d-flex justify-content-lg-end justify-content-center w-100">
-                    <div>
-                        <a href="{{ url_for('login') }}" class="btn-float">Iniciar Sesion</a>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <nav class="navbar">
+        <a class="navbar-brand title_navbar text-white" href="#">
+            <img src="../../static/img/LOGO.png" width="150" alt=""> HEAR APP
+        </a>
+        <a href="{{ url_for('login') }}" class="btn-float">Iniciar Sesion</a>
     </nav>
 
     <main>
@@ -54,6 +42,10 @@
                 </a>
             </div>
         </div>
+        <div class="personas">
+            <img src="../../static/img/personas.webp" alt="">
+        </div>
+
     </main>
 
 {% endblock %}
