@@ -58,10 +58,11 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+                         <li class="nav-item active">
                 <a class="nav-link" href="{{ url_for('dashboard_teacher') }}">
-                    <!-- <i class="fas fa-fw fa-tachometer-alt"></i> -->
-                    <span>Panel</span></a>
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Panel</span>
+                </a>
             </li>
 
             <!-- Divider -->
@@ -76,7 +77,7 @@
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseClasses"
                     aria-expanded="true" aria-controls="collapseClasses">
-                    <!-- <i class="fas fa-fw fa-chalkboard-teacher"></i> -->
+                    <i class="fas fa-fw fa-chalkboard-teacher"></i>
                     <span>Gestión de Clases</span>
                 </a>
                 <div id="collapseClasses" class="collapse" aria-labelledby="headingClasses"
@@ -89,10 +90,10 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{ url_for('profile_teacher') }}">
-                    <!-- <i class="bx fa-fw  bxs-cog"></i> -->
-                    <span>Configuraci&oacute;n</span></a>
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Configuración</span>
+                </a>
             </li>
-
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -155,30 +156,23 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"> {{ user.full_name }}</span>
-                                <!-- <img class="img-profile rounded-circle"
-                                    src="{{ url_for('static', filename='img/undraw_profile.svg') }}"> -->
-
+                                <span class="mr-2 d-lg-inline text-gray-600 small"> {{ user.full_name }}</span>
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                 aria-labelledby="userDropdown">
-                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#exampleModal"> 
                                     Perfil
                                 </a>
                                 <a class="dropdown-item" href="{{ url_for('profile_teacher') }}">
-                                    <!-- <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i> -->
                                     Configuración
                                 </a>
                                 <a class="dropdown-item" href="#">
-                                    <!-- <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i> -->
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                    <!-- <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i> -->
-                                    Cerrar Session
+                                    Cerrar Sesión
                                 </a>
                             </div>
                         </li>
