@@ -2,7 +2,7 @@
   --color-primario: #010409;
   --color-secundario: #191E2E;
   --color-terciario: #2877EE;
-  --color-cuarto: #FFFFFF;
+  --color-cuarto: #cccccc69;
 }
 
 html,
@@ -35,20 +35,13 @@ body {
   background: var(--color-cuarto);
 }
 
-.circle {
-  display: inline-block;
-  width: 15px;
-  height: 15px;
-  background-color: var(--color-primario);
-  border-radius: 50%;
-  color: white;
-  text-align: center;
-  line-height: 50px;
-}
-
 .font_1 {
   font-family: "Merriweather", serif;
   font-weight: 900;
+}
+
+.font_1 img{
+  width: 100px;
 }
 
 .font_2 {
