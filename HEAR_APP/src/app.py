@@ -191,7 +191,7 @@ def stop_recording():
     global stop_listening
     is_recording = False
     if stop_listening:
-        stop_listening(wait_for_stop=False)
+        stop_listening(wait_for_stop=True)
     return jsonify({'status': 'stopped'})
 
 @app.route('/student-classes')
