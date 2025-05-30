@@ -19,7 +19,8 @@ class ModuleUser():
     @staticmethod
     def get_user_data(db, user_id):
         cursor = db.connection.cursor()
-        sql = "SELECT id, full_name, code, gender, civil_status, institutional_mail, personal_mail, campus_id, rol_id, phone, password, state FROM tbl_user WHERE id = %s"
+        sql = "SELECT tu.id, tu.full_name, tu.code, tu.gender, tu.civil_status, tu.institutional_mail, tu.personal_mail, tc.name, tu.rol_id, tu.phone, tu.password, tu.state " \
+        "FROM tbl_user tu INNER JOIN tbl_campus tc ON tu.campus_id = tc.id WHERE tu.id = %s"
         cursor.execute(sql, (user_id,))
         row = cursor.fetchone()
 
