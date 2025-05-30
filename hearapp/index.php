@@ -13,7 +13,7 @@
 
 <body>
 <div class="panel">
-    <h5 class="title">HEAR APP</h5>
+    <h5 class="title"><img src="./dashboard/assets/img/logo.png" width="120" alt=""> HEAR APP</h5>
     <h5 class="sub-title">Bienvenido Administrador !</h5>
     <form id="access" class="signin-form" method="POST" enctype="multipart/form-data">
         <div class="form-floating mb-3">
