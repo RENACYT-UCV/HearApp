@@ -71,7 +71,7 @@
         animation-delay: 1.7s;
     }
 </style>
-<div class="container-fluid px-0">
+<div class="container-fluid px-5">
     <div class="row">
         <!-- <img src="{{ url_for('static', filename='img/banner_classes.png') }}"> -->
     </div>
@@ -99,6 +99,9 @@
                 <a href="#" id="stop-btn"><i class='bx bx-microphone-off' ></i></a>
                 <a href="#" id="start-btn"><i class='bx bx-microphone'></i></a>
             </div>
+        </div>
+        <div class="card p-3 shadow">
+            <p id="recorded-content" class="fs-2 mx-3">{{ clase[5] }}</p>
         </div>
     </div>
 </div>
