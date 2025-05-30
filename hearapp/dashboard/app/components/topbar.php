@@ -16,7 +16,7 @@
                         <i class="fas fa-user me-2"></i><?= $adminObj->nombre ?>
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown" >
-                        <li><a class="dropdown-item" href="account-settings"><i class='bx bx-cog' ></i> Configuraci&oacute;n</a></li>
+                        <li><a class="dropdown-item" href="setting"><i class='bx bx-cog' ></i> Configuraci&oacute;n</a></li>
                         <li><a class="dropdown-item" href="app/components/logout.php"><i class='bx bx-exit'></i> Cerrar Sesi&oacute;n</a></li>
                     </ul>
                 </li>

@@ -89,7 +89,7 @@
                 </div>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{ url_for('dashboard_student') }}">
+                <a class="nav-link" href="{{ url_for('profile_student') }}">
                     <!-- <i class="bx fa-fw  bxs-cog"></i> -->
                     <span>Configuraci&oacute;n</span></a>
             </li>
@@ -191,31 +191,30 @@
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
-                    <div class="modal-dialog">
+                    <div class="modal-dialog d-flex justify-content-center">
                         <div class="modal-content">
                             <div class="modal-body">
-                                <div class="col-12 d-flex justify-content-center">
+                                <div class="row justify-content-center">
                                     <div class="col-12 row">
-                                        <div class="col-xl-6 col-md-6">
+                                        <div>
                                             <div class="d-flex justify-content-center mb-2">
                                                 <!-- <img class=" rounded-circle"
                                                     src="{{ url_for('static', filename='img/undraw_profile.svg') }}"
                                                     width="100"> -->
                                             </div>
-                                            <h4 class="text-center fw-bold">{{ user.full_name }}</h4>
-                                            <p class="text-center">{{ user.role_name }}</p>
+                                            <img src="../static/img/usuario.ico" alt="logo" class="img-fluid d-block mx-auto mb-2 w-50">
+                                            <h4 class="text-center fw-bold text-break">{{ user.full_name }}</h4>
+                                            <p class="text-center text-break">{{ user.role_name }}</p>
                                         </div>
-                                        <div class="col-xl-6 col-md-6 d-flex align-items-center">
+                                        <div class="text-center m-30">
                                             <div>
                                                 <div>
-                                                    Datos Cuenta:
+                                                    <h4 class="text-center fw-bold text-break">Datos Cuenta:</h4>
                                                 </div>
-                                                <p class="text-start mb-0 small">Codigo: {{ user.code }}</p>
-                                                <p class="text-start mb-0 small">Celular: {{ user.phone }}</p>
-                                                <p class="text-start mb-0 small">Correo Personal: {{ user.personal_mail }}
-                                                </p>
-                                                <p class="text-start mb-0 small">Correo Institucional: {{
-                                                    user.institutional_mail }}</p>
+                                                <p class="text-start mb-0 small text-break"><strong>Codigo:</strong> {{ user.code }}</p>
+                                                <p class="text-start mb-0 small text-break"><strong>Celular:</strong> {{ user.phone }}</p>
+                                                <p class="text-start mb-0 small text-break"><strong>Correo Personal:</strong> {{ user.personal_mail }}</p>
+                                                <p class="text-start mb-0 small text-break"><strong>Correo Institucional:</strong> {{user.institutional_mail }}</p>
                                             </div>
                                         </div>
 
@@ -264,7 +263,7 @@
     <!-- Logout Modal-->
     <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog modal-dialog row justify-content-center" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">¿Listo para salir?</h5>

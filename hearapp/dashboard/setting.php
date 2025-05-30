@@ -20,7 +20,7 @@
                 <input type="hidden" value="<?= $adminObj->id ?>" name="id">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="floatingInput" value="<?= $adminObj->nombre ?>" name="nombre" placeholder="name@example.com">
-                    <label for="floatingInput">Nombre</label>
+                    <label for="floatingInput">Nombre Completo</label>
                 </div>
                 <div class="form-floating mb-3">
                     <input type="password" class="form-control" id="floatingInput" value="<?= $adminObj->pass ?>" name="pass" placeholder="name@example.com">
@@ -30,7 +30,7 @@
             <div class="col-xl-6 col-md-12">
                 <div class="form-floating mb-3">
                     <input type="text" class="form-control" id="floatingInput" value="<?= $adminObj->usuario ?>" name="usuario" placeholder="name@example.com">
-                    <label for="floatingInput">Apellidos</label>
+                    <label for="floatingInput">Usuario</label>
                 </div>
             </div>
             <div class="col-xl-12 col-md-12">
