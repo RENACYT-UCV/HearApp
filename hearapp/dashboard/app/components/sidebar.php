@@ -46,6 +46,15 @@
             Estudiantes</a>
     </div>
 
+    <div class="sidebar-heading text-white font_one">
+        <p class="small mb-0">Gesti&oacute;n de Sedes</p>
+    </div>
+
+    <div class="list-group list-group-flush">
+        <a href="campus" class="list-group-item list-group-item-action bg-transparent text-color-sidebar active small">
+            <!-- <i class='bx bxs-user me-2'></i>  -->
+            Campus</a>
+    </div>
   
 
     <!-- Heading -->
