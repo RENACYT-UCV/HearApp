@@ -1,0 +1,14 @@
+# Ignore Python bytecode files
+*.py[cod]
+.venv
+venv
+env
+
+# local environment variables
+.env.development
+.env.production
+.env.local
+.env
+
+# Byte-compiled files
+__pycache__/
