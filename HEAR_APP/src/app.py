@@ -1,10 +1,11 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, session, jsonify, abort
-from config import config
 from flask_mysqldb import MySQL
 from models.ModelUser import ModuleUser
 import speech_recognition as sr
 from models.entities.User import User
 import threading
+
+from config.env_config import config
 # librerias para funcion de hacer resumen
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
