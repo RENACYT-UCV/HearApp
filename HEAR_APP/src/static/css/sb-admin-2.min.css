@@ -20,6 +20,7 @@
     --danger: #e74a3b;
     --light: #f8f9fc;
     --dark: #5a5c69;
+    --black: #000;
     --breakpoint-xs: 0;
     --breakpoint-sm: 576px;
     --breakpoint-md: 768px;
@@ -6293,7 +6294,7 @@ a.close.disabled {
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 100%;
+    width: 70%;
     pointer-events: auto;
     background-color: #fff;
     background-clip: padding-box;
@@ -6343,7 +6344,8 @@ a.close.disabled {
 .modal-body {
     position: relative;
     flex: 1 1 auto;
-    padding: 1rem
+    padding: 2rem;
+    color: var(--black);
 }
 
 .modal-footer {
