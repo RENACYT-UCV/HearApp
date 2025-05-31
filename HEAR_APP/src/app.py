@@ -5,7 +5,7 @@ import speech_recognition as sr
 from models.entities.User import User
 import threading
 
-from config.env_config import config
+from env.config import config
 # # librerias para funcion de hacer resumen
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
@@ -115,7 +115,7 @@ def teacher_classes():
             print(f"Teacher ID: {teacher_id}")
             
             cursor = db.connection.cursor()
-            cursor.execute("SELECT name_class, name_curso, start_date, end_date, status, text, teacher_id, id FROM tbl_class WHERE teacher_id = %s", (teacher_id,))
+            cursor.execute("SELECT name_class, name_curso, start_date, end_date, status, text, teacher_id, id, resumen FROM tbl_class WHERE teacher_id = %s", (teacher_id,))
             clases = cursor.fetchall()
             cursor.close()
             
@@ -137,7 +137,7 @@ def live_class_teacher():
             class_id = request.args.get('class_id')
             if class_id:
                 cursor = db.connection.cursor()
-                cursor.execute("SELECT name_class, name_curso, start_date, end_date, status, recorded_content, teacher_id FROM tbl_class WHERE id = %s", (class_id,))
+                cursor.execute("SELECT name_class, name_curso, start_date, end_date, status, recorded_content, teacher_id, resumen FROM tbl_class WHERE id = %s", (class_id,))
                 clase = cursor.fetchone()
                 cursor.close()
                 if clase:
@@ -213,7 +213,7 @@ def student_classes():
         if user_data and user_data.role_id == 2:  # Verifica que el usuario sea un estudiante
             user_data.role_name = 'ESTUDIANTE'
             cursor = db.connection.cursor()
-            cursor.execute("SELECT c.id, c.name_class, c.name_curso, c.start_date, c.end_date, c.status, c.text FROM tbl_class c INNER JOIN tbl_class_students cs ON c.id = cs.class_id WHERE cs.students_d = %s", (user_id,))
+            cursor.execute("SELECT c.id, c.name_class, c.name_curso, c.start_date, c.end_date, c.status, c.resumen FROM tbl_class c INNER JOIN tbl_class_students cs ON c.id = cs.class_id WHERE cs.students_d = %s", (user_id,))
             clases = cursor.fetchall()
             cursor.close()
             return render_template('auth/student-classes.html', user=user_data, clases=clases)
@@ -231,7 +231,7 @@ def live_class_student():
             class_id = request.args.get('class_id')
             if class_id:
                 cursor = db.connection.cursor()
-                cursor.execute("SELECT name_class, name_curso, start_date, end_date, status, recorded_content, teacher_id FROM tbl_class WHERE id = %s", (class_id,))
+                cursor.execute("SELECT name_class, name_curso, start_date, end_date, status, recorded_content, teacher_id, resumen FROM tbl_class WHERE id = %s", (class_id,))
                 clase = cursor.fetchone()
                 cursor.close()
                 if clase:
