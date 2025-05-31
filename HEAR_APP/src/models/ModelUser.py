@@ -55,6 +55,15 @@ class ModuleUser():
         count = cursor.fetchone()[0]
         return count
     
+
+    @staticmethod
+    def get_assigned_classes_count_student(db, student_id):
+        cursor = db.connection.cursor()
+        sql = "SELECT COUNT(*) FROM tbl_class_students WHERE students_d = %s"
+        cursor.execute(sql, (student_id,))
+        count = cursor.fetchone()[0]
+        return count
+    
 # mostrar cantidad de estudiantes inscritos  
     @staticmethod
     def get_enrolled_students_count(db, teacher_id):

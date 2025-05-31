@@ -1,16 +1,28 @@
 from flask import Flask, render_template, request, flash, redirect, url_for, session, jsonify, abort
+from config import config
 from flask_mysqldb import MySQL
 from models.ModelUser import ModuleUser
 import speech_recognition as sr
 from models.entities.User import User
 import threading
-
-from config.env_config import config
 # librerias para funcion de hacer resumen
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lsa import LsaSummarizer
 import nltk
+# from flask import Flask, render_template, request, flash, redirect, url_for, session, jsonify, abort
+# from flask_mysqldb import MySQL
+# from models.ModelUser import ModuleUser
+# import speech_recognition as sr
+# from models.entities.User import User
+# import threading
+
+# from config.env_config import config
+# # librerias para funcion de hacer resumen
+# from sumy.parsers.plaintext import PlaintextParser
+# from sumy.nlp.tokenizers import Tokenizer
+# from sumy.summarizers.lsa import LsaSummarizer
+# import nltk
 
 app = Flask(__name__)
 
@@ -88,7 +100,11 @@ def dashboard_student():
         user_data = ModuleUser.get_user_data(db, user_id)
         if user_data and user_data.role_id == 2:  # Verifica que el usuario sea un estudiante
             user_data.role_name = 'ESTUDIANTE'
-            return render_template('auth/dashboard-student.html', user=user_data)
+
+            assigned_classes_count_student = ModuleUser.get_assigned_classes_count_student(db, user_id)
+
+            return render_template('auth/dashboard-student.html', user=user_data,
+                                   assigned_classes_count_student = assigned_classes_count_student)
     
     abort(403)  # Devuelve un error 403 Forbidden si el usuario no tiene permiso
 
