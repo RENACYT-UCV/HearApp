@@ -5,7 +5,7 @@ import speech_recognition as sr
 from models.entities.User import User
 import threading
 
-from env.config import config
+from config.env_config import config
 # # librerias para funcion de hacer resumen
 from sumy.parsers.plaintext import PlaintextParser
 from sumy.nlp.tokenizers import Tokenizer
