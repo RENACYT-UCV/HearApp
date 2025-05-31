@@ -415,7 +415,7 @@ $courseArray = General::getCourseAll();
 <?php include 'app/components/footer.php'; ?>
 
 <script src="assets/js/general/add-course.js"></script>
-<script src="assets/js/general/edit-course.js"></script>
+<script src="assets/js/general/edit-curso.js"></script>
 <script>
     document.addEventListener('DOMContentLoaded', (event) => {
         const addTemaBtn = document.getElementById('addTemaBtn');
