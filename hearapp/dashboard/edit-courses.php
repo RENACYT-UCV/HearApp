@@ -49,7 +49,7 @@ $temas = General::getThemeCourseId($courseId);
                         </div>
                         <div class="row mt-3">
                             <div class="col-md-12">
-                                <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+                                <button type="submit" class="btn btn-primary" onclick="window.location.href='courses.php'">Guardar Cambios</button>
                             </div>
                         </div>
                     </form>
