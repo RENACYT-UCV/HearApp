@@ -11,6 +11,13 @@ from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lsa import LsaSummarizer
 import nltk
 
+from openai import OpenAI
+
+client = OpenAI(
+    api_key="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",
+    base_url="https://openrouter.ai/api/v1"
+)
+
 app = Flask(__name__)
 
 db = MySQL(app)
@@ -249,6 +256,22 @@ def fetch_recorded_content():
         return jsonify({'status': 'error', 'message': 'ID de clase no proporcionado'})
 
 
+#Resumen de clase
+def generate_summary(texto):
+    try:
+        prompt = (
+            "Resume el siguiente texto de forma clara y sencilla, sin usar símbolos especiales, negritas ni formato Markdown. "
+            "El resumen debe estar en formato de texto plano, fácil de leer:\n\n"
+            f"{texto}"
+        )
+        chat = client.chat.completions.create(
+            model="deepseek/deepseek-r1:free",
+            messages=[{"role": "user", "content": prompt}]
+        )
+        return chat.choices[0].message.content.strip()
+    except Exception as e:
+        return f"Error al generar resumen: {str(e)}"
+
 #resumen aquiconsultare mi conlumna de grabacion y guadare en resumen
 @app.route('/generate-summary', methods=['POST'])
 def generate_summary_endpoint():
@@ -259,15 +282,22 @@ def generate_summary_endpoint():
         result = cursor.fetchone()
         if result:
             recorded_content = result[0]
+            if not recorded_content:
+                return jsonify({"status": "error", "message": "No hay contenido grabado para esta clase"}), 400
+
             resumen = generate_summary(recorded_content)
+
             cursor.execute("UPDATE tbl_class SET resumen = %s WHERE id = %s", (resumen, class_id))
             db.connection.commit()
             cursor.close()
+
             return jsonify({"status": "success", "resumen": resumen})
         else:
             cursor.close()
-            return jsonify({"status": "error", "message": "Clase no encontrada"})
-    return jsonify({"status": "error", "message": "ID de clase no proporcionado"})
+            return jsonify({"status": "error", "message": "Clase no encontrada"}), 404
+
+    return jsonify({"status": "error", "message": "ID de clase no proporcionado"}), 400
+
 
 #Perfil de usuarios
 @app.route('/profile-student')
