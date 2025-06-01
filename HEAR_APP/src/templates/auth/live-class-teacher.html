@@ -137,6 +137,32 @@ $(document).ready(function() {
     // Deshabilitar el botón de detener grabación al cargar la página
     $('#stop-btn').prop('disabled', true);
 });
+
+let intervalId;
+let previousContent = '';
+const classId = "{{ request.args.get('class_id') }}";
+        intervalId = setInterval(function() {
+            $.get('/get-recorded-content', { class_id: classId }, function(data) {
+                if(data.status === 'success') {
+                    const newContent = data.recorded_content;
+                    if (newContent !== previousContent) {
+                        const oldContentLength = previousContent.length;
+                        const newText = newContent.slice(oldContentLength);
+                        const highlightedText = '<span class="highlight">' + newText + '</span>';
+                        $('#recorded-content').html(previousContent + highlightedText);
+                        previousContent = newContent;
+                        setTimeout(() => {
+                            $('#recorded-content').html(newContent);
+                            $('#recorded-content').scrollTop($('#recorded-content')[0].scrollHeight);
+                        }, 3000);
+                        $('#recorded-content').scrollTop($('#recorded-content')[0].scrollHeight);
+                    }
+                } else {
+                    console.log('Error: ' + data.message);
+                }
+            });
+        }, 5000);
+
 </script>
 
 {% endblock %}
